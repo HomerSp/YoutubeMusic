@@ -20,6 +20,9 @@ SOURCES += main.cpp \
 
 RESOURCES += qml.qrc
 
+include(assets/assets.pri)
+include(qml/qml.pri)
+
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
 

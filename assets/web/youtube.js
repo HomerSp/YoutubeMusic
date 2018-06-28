@@ -87,8 +87,8 @@ var zeptoLoaded = function() {
 	});
 }
 
-loadScript("qrc:///zepto.min.js", function() {
-	loadScript("qrc:///zepto.youtube.js", function() {
+loadScript("qrc:///web/zepto.min.js", function() {
+	loadScript("qrc:///web/zepto.youtube.js", function() {
 		loadScript("qrc:///qtwebchannel/qwebchannel.js", zeptoLoaded);
 	});
 });

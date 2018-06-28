@@ -1,13 +1,5 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>youtube.js</file>
-        <file>zepto.min.js</file>
-        <file>zepto.youtube.js</file>
-        <file>themes/light.css</file>
-        <file>themes/default.css</file>
-        <file>ThemedMenu.qml</file>
-        <file>ThemedMenuBar.qml</file>
-        <file>ThemedMenuSeparator.qml</file>
     </qresource>
 </RCC>

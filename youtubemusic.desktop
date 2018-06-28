@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Youtube Music
-GenericName=Music Player
-Comment=Listen to music using Youtube Music
-Icon=youtubemusic
-Exec=/usr/bin/YoutubeMusic
-Terminal=false
-Type=Application
-Categories=Audio;Music;Player;AudioVideo;

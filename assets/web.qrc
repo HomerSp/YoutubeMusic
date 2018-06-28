@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>web/youtube.js</file>
+        <file>web/zepto.min.js</file>
+        <file>web/zepto.youtube.js</file>
+    </qresource>
+</RCC>

@@ -8,6 +8,7 @@ import QtWebEngine 1.7
 import QtWebChannel 1.0
 import org.nemomobile.mpris 1.0
 import se.aqba.qt.youtubemusic 1.0
+import "qrc:/components"
 
 ApplicationWindow {
     id: mainWindow
@@ -105,7 +106,7 @@ ApplicationWindow {
                 injectionPoint: WebEngineScript.DocumentReady
                 worldId: WebEngineScript.MainWorld
                 name: "Youtube"
-                sourceUrl: "qrc:///youtube.js"
+                sourceUrl: "qrc:///web/youtube.js"
             }
         ]
 

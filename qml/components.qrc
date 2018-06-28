@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>components/ThemedMenu.qml</file>
+        <file>components/ThemedMenuBar.qml</file>
+        <file>components/ThemedMenuSeparator.qml</file>
+    </qresource>
+</RCC>
