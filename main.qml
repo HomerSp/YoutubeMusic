@@ -106,7 +106,7 @@ ApplicationWindow {
                 injectionPoint: WebEngineScript.DocumentReady
                 worldId: WebEngineScript.MainWorld
                 name: "Youtube"
-                sourceUrl: "qrc:///web/youtube.js"
+                sourceUrl: "qrc:/web/youtube.js"
             }
         ]
 
