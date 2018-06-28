@@ -1,0 +1,33 @@
+qml MenuBar {
+	background-color: #232323;
+	color: #fff;
+    border-bottom-color: #232323;
+}
+qml MenuBarItem {
+	background-color: transparent;
+	color: #fff;
+}
+qml MenuBarItem:active {
+	background-color: #fff;
+	color: #232323;
+}
+qml MenuBarItem:hover {
+	background-color: #ccc;
+	color: #232323;
+}
+qml MenuItem {
+	background-color: #232323;
+	color: #fff;
+}
+qml MenuItem:active {
+	background-color: #fff;
+	color: #232323;
+}
+qml MenuItem:hover {
+	background-color: #ccc;
+	color: #232323;
+}
+qml MenuSeparator {
+	background-color: transparent;
+	color: #ccc;
+}

@@ -1,0 +1,70 @@
+qml MenuBar {
+	background-color: #ebebeb;
+	color: #000000;
+	border-bottom-color: #ebebeb;
+}
+qml MenuBarItem {
+	background-color: transparent;
+	color: #000000;
+}
+qml MenuBarItem:active {
+	background-color: #000000;
+	color: #ebebeb;
+}
+qml MenuBarItem:hover {
+	background-color: #333;
+	color: #ebebeb;
+}
+qml MenuItem {
+	background-color: #ebebeb;
+	color: #000000;
+}
+qml MenuItem:active {
+	background-color: #000000;
+	color: #ebebeb;
+}
+qml MenuItem:hover {
+	background-color: #333;
+	color: #ebebeb;
+}
+qml MenuSeparator {
+	background-color: transparent;
+	color: #333;
+}
+
+html:not([style-scope]):not(.style-scope) {
+      --ytmusic-color-surface-1: #fff;
+      --ytmusic-color-surface-2: #f4f4f4;
+      --ytmusic-color-surface-3: #ebebeb;
+      --ytmusic-color-surface-4: #e2e2e2;
+
+      --ytmusic-color-text-1: #131313;
+      --ytmusic-color-text-2: #606060;
+      --ytmusic-color-text-3: #909090;
+
+      --ytmusic-color-icon-active: #000;
+      --ytmusic-color-icon-inactive: #909090;
+
+      --ytmusic-color-badge: #606060;
+      --ytmusic-color-text-idle: #909090;
+      --ytmusic-color-scrubber-bar-1: #ff0000;
+      --ytmusic-color-fab-bg: #131313;
+      --ytmusic-color-fab-icon: #fff;
+      --ytmusic-color-divider: rgba(0, 0, 0, .08);
+      --ytmusic-color-input-label-focused: #0b83e5;
+      --ytmusic-color-input-border: #aaa;
+      --ytmusic-color-input-border-focused: #0b83e5;
+
+      --ytmusic-background: var(--ytmusic-color-surface-1);
+      --ytmusic-active-tab-color: var(--ytmusic-color-text-1);
+      --ytmusic-inactive-tab-color: var(--ytmusic-color-text-2);
+      --ytmusic-title-1_-_--yt-endpoint-hover-color: var(--ytmusic-color-text-1);
+}
+
+yt-icon {
+	--ytmusic-play-button-icon-color: var(--ytmusic-color-text-2);
+}
+
+paper-listbox.ytmusic-menu-popup-renderer {
+	--paper-listbox-background-color: var(--ytmusic-color-surface-4);
+}
