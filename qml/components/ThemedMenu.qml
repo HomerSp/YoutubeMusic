@@ -7,8 +7,8 @@ Menu {
     background: Rectangle {
        implicitWidth: 200
        implicitHeight: 40
-       color: themeManager.properties.getColor("MenuItem", "background-color", menu.palette.window)
-       border.color: themeManager.properties.getColor("MenuItem", "background-color", menu.palette.dark)
+       color: themeManager.properties.get("MenuItem", "background-color", menu.palette.window)
+       border.color: themeManager.properties.get("MenuItem", "background-color", menu.palette.dark)
     }
     delegate: MenuItem {
         id: control
@@ -18,7 +18,7 @@ Menu {
             text: control.text
             font: control.font
             icon: control.icon
-            color: themeManager.properties.getColor("MenuItem", "color", control.palette.windowText, ((control.subMenu !== null && (control.highlighted || control.hovered)) ? "active" : control.hovered ? "hover" : ""))
+            color: themeManager.properties.get("MenuItem", "color", control.palette.windowText, ((control.subMenu !== null && (control.highlighted || control.hovered)) ? "active" : control.hovered ? "hover" : ""))
         }
 
         background: Rectangle {
@@ -28,7 +28,7 @@ Menu {
             y: 1
             width: control.width - 2
             height: control.height - 2
-            color: themeManager.properties.getColor("MenuItem", "background-color", control.palette.midlight, ((control.subMenu !== null && (control.highlighted || control.hovered)) ? "active" : control.hovered ? "hover" : ""))
+            color: themeManager.properties.get("MenuItem", "background-color", control.palette.midlight, ((control.subMenu !== null && (control.highlighted || control.hovered)) ? "active" : control.hovered ? "hover" : ""))
         }
     }
 }

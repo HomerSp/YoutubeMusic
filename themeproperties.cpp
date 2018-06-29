@@ -5,7 +5,7 @@ ThemeProperties::ThemeProperties(QObject *parent) : QObject(parent)
 
 }
 
-QString ThemeProperties::getColor(const QString& element, const QString& prop, QString def, QString state) const {
+QString ThemeProperties::get(const QString& element, const QString& prop, QString def, QString state) const {
     if(state.length() > 0 && mProperties.find(element + ":" + state) != mProperties.end()) {
         QMap<QString, QString> props = mProperties.find(element + ":" + state).value();
         if(props.find(prop) != props.end()) {
@@ -25,35 +25,35 @@ QString ThemeProperties::getColor(const QString& element, const QString& prop, Q
     return def;
 }
 
-void ThemeProperties::load(const QString& theme) {
-    QFile dataFile(":/themes/" + theme + ".css");
-    if(!dataFile.exists()) {
-        dataFile.setFileName(":/themes/default.css");
-    }
+void ThemeProperties::load(QString &themeData) {
+    QTextStream stream(&themeData, QIODevice::ReadOnly);
+    while(!stream.atEnd()) {
+        QString line = stream.readLine().trimmed();
+        if(line.startsWith("qml")) {
+            QString element = line.mid(3).trimmed();
+            element = element.mid(0, element.indexOf('{')).trimmed();
 
-    if(dataFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        while(!dataFile.atEnd()) {
-            QString line = dataFile.readLine().trimmed();
-            if(line.startsWith("qml")) {
-                QString element = line.mid(3).trimmed();
-                element = element.mid(0, element.indexOf('{')).trimmed();
+            QMap<QString, QString> props;
 
-                QMap<QString, QString> props;
-
-                while(!dataFile.atEnd()) {
-                    QString propsLine = dataFile.readLine().trimmed();
-                    if(propsLine == "}") {
-                        break;
-                    }
-
-                    QStringList arr = propsLine.split(":", QString::SkipEmptyParts);
-                    if(arr.size() == 2) {
-                        props.insert(arr.at(0).trimmed(), arr.at(1).mid(0, arr.at(1).indexOf(';')).trimmed());
-                    }
+            while(!stream.atEnd()) {
+                QString propsLine = stream.readLine().trimmed();
+                if(propsLine == "}") {
+                    break;
                 }
 
-                mProperties.insert(element, props);
+                QStringList arr = propsLine.split(":", QString::SkipEmptyParts);
+                if(arr.size() == 2) {
+                    QString key = arr.at(0).trimmed();
+                    QString value = arr.at(1).mid(0, arr.at(1).indexOf(';')).trimmed();
+                    if(value.length() > 0 && value.at(0) == '"') {
+                        value = value.mid(1, value.indexOf('"', 1) - 1);
+                    }
+
+                    props.insert(key, value);
+                }
             }
+
+            mProperties.insert(element, props);
         }
     }
 }

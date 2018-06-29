@@ -35,14 +35,20 @@ ApplicationWindow {
             ThemedMenu {
                 title: qsTr("&Theme")
 
-                Action {
-                    text: qsTr("Default")
-                    onTriggered: themeManager.theme = ""
-                }
+                Component.onCompleted: {
+                    while(this.count > 0) {
+                        this.removeItem(this.itemAt(0))
+                    }
 
-                Action {
-                    text: qsTr("Light")
-                    onTriggered: themeManager.theme = "light"
+                    var themes = themeManager.getThemes()
+                    for(var key in themes) {
+                        var theme = themes[key]
+
+                        var actionComponent = Qt.createComponent("components/ThemedAction.qml")
+                        var action = actionComponent.createObject(this, {name: theme.name, displayName: theme.displayName})
+
+                        this.addAction(action)
+                    }
                 }
             }
 

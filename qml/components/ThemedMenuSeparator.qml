@@ -6,11 +6,11 @@ MenuSeparator {
     contentItem: Rectangle {
         implicitWidth: 188
         implicitHeight: 1
-        color: themeManager.properties.getColor("MenuSeparator", "color", control.palette.mid)
+        color: themeManager.properties.get("MenuSeparator", "color", control.palette.mid)
     }
     background: Rectangle {
         implicitWidth: 188
         implicitHeight: 5
-        color: themeManager.properties.getColor("MenuSeparator", "background-color", "transparent")
+        color: themeManager.properties.get("MenuSeparator", "background-color", "transparent")
     }
 }

@@ -1,57 +1,57 @@
 qml Main {
-      name: "Light";
+      name: "Pure Blue";
 }
 
 qml MenuBar {
-	background-color: #ebebeb;
-	color: #000000;
-	border-bottom-color: #ebebeb;
+	background-color: #1565c0;
+	color: #fff;
+	border-bottom-color: #1565c0;
 }
 qml MenuBarItem {
 	background-color: transparent;
-	color: #000000;
+	color: #fff;
 }
 qml MenuBarItem:active {
-	background-color: #000000;
-	color: #ebebeb;
+	background-color: #fff;
+	color: #1565c0;
 }
 qml MenuBarItem:hover {
-	background-color: #333;
-	color: #ebebeb;
+	background-color: #ccc;
+	color: #1565c0;
 }
 qml MenuItem {
-	background-color: #000;
-	color: #ebebeb;
+	background-color: #fff;
+	color: #1565c0;
 }
 qml MenuItem:active {
-	background-color: #ebebeb;
-	color: #000;
+	background-color: #1565c0;
+	color: #fff;
 }
 qml MenuItem:hover {
-	background-color: #ebebeb;
-	color: #333;
+	background-color: #1565c0;
+	color: #fff;
 }
 qml MenuSeparator {
 	background-color: transparent;
-	color: #ebebeb;
+	color: #1565c0;
 }
 
 html:not([style-scope]):not(.style-scope) {
-      --ytmusic-color-surface-1: #fff;
-      --ytmusic-color-surface-2: #f4f4f4;
-      --ytmusic-color-surface-3: #ebebeb;
-      --ytmusic-color-surface-4: #e2e2e2;
+      --ytmusic-color-surface-1: #bbdefb;
+      --ytmusic-color-surface-2: #90caf9;
+      --ytmusic-color-surface-3: #1565c0;
+      --ytmusic-color-surface-4: #64b5f6;
 
       --ytmusic-color-text-1: #131313;
-      --ytmusic-color-text-2: #606060;
-      --ytmusic-color-text-3: #909090;
+      --ytmusic-color-text-2: #303030;
+      --ytmusic-color-text-3: #606060;
 
       --ytmusic-color-icon-active: #000;
       --ytmusic-color-icon-inactive: #909090;
 
-      --ytmusic-color-badge: #606060;
-      --ytmusic-color-text-idle: #909090;
-      --ytmusic-color-scrubber-bar-1: #ff0000;
+      --ytmusic-color-badge: #303030;
+      --ytmusic-color-text-idle: #606060;
+      --ytmusic-color-scrubber-bar-1: #0d47a1;
       --ytmusic-color-fab-bg: #131313;
       --ytmusic-color-fab-icon: #fff;
       --ytmusic-color-divider: rgba(0, 0, 0, .08);

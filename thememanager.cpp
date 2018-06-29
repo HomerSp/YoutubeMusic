@@ -1,6 +1,12 @@
 #include <QDebug>
 #include <QFile>
+#include <QDir>
 #include "thememanager.h"
+
+ThemeInfo::ThemeInfo(const QString& name, const QString& displayName, QObject *parent) : QObject(parent) {
+    mName = name;
+    mDisplayName = displayName;
+}
 
 ThemeManager::ThemeManager(QObject* parent) : QObject(parent),
     mTheme(""),
@@ -8,6 +14,33 @@ ThemeManager::ThemeManager(QObject* parent) : QObject(parent),
     mProperties(new ThemeProperties(parent))
 {
 
+}
+
+QVariantList ThemeManager::getThemes() {
+    QVariantList ret;
+
+    for(QString dir: QDir(":/themes").entryList()) {
+        QString name = dir.mid(0, dir.lastIndexOf('.'));
+
+        QFile dataFile(":/themes/" + name + ".css");
+        if(dataFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QString themeData = dataFile.readAll();
+
+            ThemeProperties* props = new ThemeProperties();
+            props->load(themeData);
+
+            QString displayName = props->get("Main", "name");
+            if(displayName.length() > 0) {
+                QVariant variant;
+                variant.setValue(new ThemeInfo(name, displayName, this));
+                ret.append(variant);
+            }
+
+            delete props;
+        }
+    }
+
+    return ret;
 }
 
 QString ThemeManager::themeData() const {
@@ -37,6 +70,6 @@ void ThemeManager::loadTheme() {
         mThemeData = dataFile.readAll();
     }
 
-    mProperties->load(mTheme);
+    mProperties->load(mThemeData);
     emit propertiesChanged();
 }

@@ -12,23 +12,23 @@ MenuBar {
             text: parent.text
             font: parent.font
             opacity: enabled ? 1.0 : 0.3
-            color: themeManager.properties.getColor("MenuBarItem", "color", control.palette.buttonText, ((control.menu !== null && control.menu.visible) ? "active" : control.hovered ? "hover" : ""))
+            color: themeManager.properties.get("MenuBarItem", "color", control.palette.buttonText, ((control.menu !== null && control.menu.visible) ? "active" : control.hovered ? "hover" : ""))
         }
 
         background: Rectangle {
             implicitWidth: 40
             implicitHeight: 40
             opacity: enabled ? 1 : 0.3
-            color: themeManager.properties.getColor("MenuBarItem", "background-color", "transparent", ((control.menu !== null && control.menu.visible) ? "active" : control.hovered ? "hover" : ""))
+            color: themeManager.properties.get("MenuBarItem", "background-color", "transparent", ((control.menu !== null && control.menu.visible) ? "active" : control.hovered ? "hover" : ""))
         }
     }
 
     background: Rectangle {
        implicitHeight: 40
-       color: themeManager.properties.getColor("MenuBar", "background-color", menuBar.palette.button)
+       color: themeManager.properties.get("MenuBar", "background-color", menuBar.palette.button)
 
        Rectangle {
-           color: themeManager.properties.getColor("MenuBar", "border-bottom-color", menuBar.palette.button)
+           color: themeManager.properties.get("MenuBar", "border-bottom-color", menuBar.palette.button)
            width: parent.width
            height: 1
            anchors.bottom: parent.bottom

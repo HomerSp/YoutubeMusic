@@ -13,9 +13,9 @@ public:
 
     explicit ThemeProperties(QObject *parent = nullptr);
 
-     Q_INVOKABLE QString getColor(const QString& element, const QString& prop, QString def = "", QString state = "") const;
+    Q_INVOKABLE QString get(const QString& element, const QString& prop, QString def = "", QString state = "") const;
 
-    void load(const QString& theme);
+    void load(QString& themeData);
 
 signals:
 
