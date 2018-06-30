@@ -62,16 +62,17 @@ html:not([style-scope]):not(.style-scope) {
       --ytmusic-background: var(--ytmusic-color-surface-1);
       --ytmusic-active-tab-color: var(--ytmusic-color-text-1);
       --ytmusic-inactive-tab-color: var(--ytmusic-color-text-2);
-      --ytmusic-title-1_-_--yt-endpoint-hover-color: var(--ytmusic-color-text-1);
+      --yt-endpoint-hover-color: var(--ytmusic-color-text-1);
 }
 
-.title.ytmusic-immersive-header-renderer, .description.ytmusic-immersive-header-renderer {
-      --ytmusic-display-1_-_color: #fff;
-      --ytmusic-subtitle-1_-_color: #fff;
+a.ytmusic-pivot-bar-item-renderer {
+      --yt-endpoint-hover-color: var(--ytmusic-active-tab-color);
 }
-
-ytmusic-toggle-button-renderer #button.ytmusic-toggle-button-renderer {
-      --yt-button-color: #fff;
+.image.ytmusic-immersive-header-renderer ~ .content-container-wrapper.ytmusic-immersive-header-renderer {
+      background-color: rgba(255, 255, 255, .75);
+}
+.title.ytmusic-immersive-header-renderer, .description.ytmusic-immersive-header-renderer, ytmusic-toggle-button-renderer #button.ytmusic-toggle-button-renderer {
+      color: var(--ytmusic-color-text-1);
 }
 
 yt-icon {

@@ -1,6 +1,7 @@
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QtWebEngine>
+#include <QSystemTrayIcon>
 #include "webengineviewfix.h"
 #include "thememanager.h"
 #include "mainwindow.h"
@@ -8,7 +9,10 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
+
+    // Make sure the tray icon shows properly
+    QIcon::setThemeSearchPaths(QIcon::themeSearchPaths() << ":/icons");
 
     QtWebEngine::initialize();
 

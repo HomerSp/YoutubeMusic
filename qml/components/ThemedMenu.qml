@@ -14,6 +14,13 @@ Menu {
         id: control
         hoverEnabled: true
 
+        implicitWidth: Math.max(background ? background.implicitWidth : 0,
+                                contentItem.implicitWidth + leftPadding + rightPadding)
+        implicitHeight: Math.max(background ? background.implicitHeight : 0,
+                                 Math.max(contentItem.implicitHeight,
+                                          indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
+        baselineOffset: contentItem.y + contentItem.baselineOffset
+
         contentItem: IconLabel {
             text: control.text
             font: control.font
@@ -29,6 +36,17 @@ Menu {
             width: control.width - 2
             height: control.height - 2
             color: themeManager.properties.get("MenuItem", "background-color", control.palette.midlight, ((control.subMenu !== null && (control.highlighted || control.hovered)) ? "active" : control.hovered ? "hover" : ""))
+        }
+
+        arrow: ColorImage {
+            x: control.mirrored ? control.leftPadding : control.width - width - control.rightPadding
+            y: control.topPadding + (control.availableHeight - height) / 2
+
+            visible: control.subMenu
+            mirror: control.mirrored
+            source: control.subMenu ? "qrc:/qt-project.org/imports/QtQuick/Controls.2/images/arrow-indicator.png" : ""
+            color: control.palette.windowText
+            defaultColor: "#353637"
         }
     }
 }

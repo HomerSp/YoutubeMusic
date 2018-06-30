@@ -8,6 +8,13 @@ MenuBar {
         id: control
         hoverEnabled: true
 
+        implicitWidth: Math.max(background ? background.implicitWidth : 0,
+                                    contentItem.implicitWidth + leftPadding + rightPadding)
+        implicitHeight: Math.max(background ? background.implicitHeight : 0,
+                                 Math.max(contentItem.implicitHeight,
+                                          indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
+        baselineOffset: contentItem.y + contentItem.baselineOffset
+
         contentItem: IconLabel {
             text: parent.text
             font: parent.font

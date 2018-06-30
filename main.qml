@@ -4,6 +4,7 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls.impl 2.4
 import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
+import Qt.labs.platform 1.0
 import QtWebEngine 1.7
 import QtWebChannel 1.0
 import org.nemomobile.mpris 1.0
@@ -25,6 +26,13 @@ ApplicationWindow {
             menuBar.visible = false
         } else {
             menuBar.visible = true
+        }
+    }
+
+    onClosing: {
+        // The tray icon causes the program to continue running, so hide it if we don't want that to happen.
+        if(!trayIcon.shouldShow || !trayIcon.closeToTray) {
+            trayIcon.hide()
         }
     }
 
@@ -260,6 +268,43 @@ ApplicationWindow {
         }
     }
 
+    SystemTrayIcon {
+        property bool closeToTray: true
+        property bool shouldShow: true
+
+        id: trayIcon
+        visible: shouldShow
+        iconName: "youtubemusic"
+
+        menu: Menu {
+            MenuItem {
+                text: qsTr("&Show")
+                onTriggered: trayIcon.activated(SystemTrayIcon.Trigger)
+            }
+
+            MenuItem {
+                text: qsTr("&Quit")
+                onTriggered: Qt.quit()
+            }
+        }
+
+        onActivated: {
+            if(reason !== SystemTrayIcon.Context) {
+                mainWindow.show()
+                mainWindow.raise()
+                mainWindow.requestActivate()
+            }
+        }
+
+        Component.onCompleted: {
+            if(shouldShow) {
+                this.show()
+            } else {
+                this.hide()
+            }
+        }
+    }
+
     Settings {
         id: windowState
         property alias x: mainWindow.x
@@ -272,6 +317,8 @@ ApplicationWindow {
     Settings {
         id: mainSettings
         property alias theme: themeManager.theme
+        property alias trayIconShow: trayIcon.shouldShow
+        property alias trayIconClose: trayIcon.closeToTray
     }
 
     Settings {

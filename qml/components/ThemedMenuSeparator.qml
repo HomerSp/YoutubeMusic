@@ -3,6 +3,10 @@ import QtQuick.Controls 2.2
 
 MenuSeparator {
     id: control
+
+    implicitWidth: Math.max(background ? background.implicitWidth : 0, contentItem.implicitWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(background ? background.implicitHeight : 0, contentItem.implicitHeight + topPadding + bottomPadding)
+
     contentItem: Rectangle {
         implicitWidth: 188
         implicitHeight: 1

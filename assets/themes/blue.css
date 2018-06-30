@@ -3,9 +3,9 @@ qml Main {
 }
 
 qml MenuBar {
-	background-color: #1565c0;
+	background-color: #0d47a1;
 	color: #fff;
-	border-bottom-color: #1565c0;
+	border-bottom-color: #0d47a1;
 }
 qml MenuBarItem {
 	background-color: transparent;
@@ -13,33 +13,33 @@ qml MenuBarItem {
 }
 qml MenuBarItem:active {
 	background-color: #fff;
-	color: #1565c0;
+	color: #0d47a1;
 }
 qml MenuBarItem:hover {
 	background-color: #ccc;
-	color: #1565c0;
+	color: #0d47a1;
 }
 qml MenuItem {
 	background-color: #fff;
-	color: #1565c0;
+	color: #0d47a1;
 }
 qml MenuItem:active {
-	background-color: #1565c0;
+	background-color: #0d47a1;
 	color: #fff;
 }
 qml MenuItem:hover {
-	background-color: #1565c0;
+	background-color: #0d47a1;
 	color: #fff;
 }
 qml MenuSeparator {
 	background-color: transparent;
-	color: #1565c0;
+	color: #0d47a1;
 }
 
 html:not([style-scope]):not(.style-scope) {
       --ytmusic-color-surface-1: #bbdefb;
       --ytmusic-color-surface-2: #90caf9;
-      --ytmusic-color-surface-3: #1565c0;
+      --ytmusic-color-surface-3: #0d47a1;
       --ytmusic-color-surface-4: #64b5f6;
 
       --ytmusic-color-text-1: #131313;
@@ -60,18 +60,19 @@ html:not([style-scope]):not(.style-scope) {
       --ytmusic-color-input-border-focused: #0b83e5;
 
       --ytmusic-background: var(--ytmusic-color-surface-1);
-      --ytmusic-active-tab-color: var(--ytmusic-color-text-1);
-      --ytmusic-inactive-tab-color: var(--ytmusic-color-text-2);
-      --ytmusic-title-1_-_--yt-endpoint-hover-color: var(--ytmusic-color-text-1);
+      --ytmusic-active-tab-color: #e3f2fd;
+      --ytmusic-inactive-tab-color: #bbdefb;
 }
 
-.title.ytmusic-immersive-header-renderer, .description.ytmusic-immersive-header-renderer {
-      --ytmusic-display-1_-_color: #fff;
-      --ytmusic-subtitle-1_-_color: #fff;
+a.ytmusic-pivot-bar-item-renderer {
+      --yt-endpoint-hover-color: var(--ytmusic-active-tab-color);
+}
+.image.ytmusic-immersive-header-renderer ~ .content-container-wrapper.ytmusic-immersive-header-renderer {
+      background-color: rgba(13, 71, 161, .75);
 }
 
-ytmusic-toggle-button-renderer #button.ytmusic-toggle-button-renderer {
-      --yt-button-color: #fff;
+.title.ytmusic-immersive-header-renderer, .description.ytmusic-immersive-header-renderer, ytmusic-toggle-button-renderer #button.ytmusic-toggle-button-renderer {
+      color: #fff;
 }
 
 yt-icon {

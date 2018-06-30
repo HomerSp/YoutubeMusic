@@ -1,2 +1,3 @@
-RESOURCES += assets/themes.qrc \
+RESOURCES += assets/icons.qrc \
+	assets/themes.qrc \
 	assets/web.qrc 
