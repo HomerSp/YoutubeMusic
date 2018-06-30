@@ -205,13 +205,13 @@ var Youtube = (function() {
 	}
 
 	youtube.pause = function() {
-		if(!youtube.songState.paused) {
+		if(youtube.songState.playing == 1) {
 			youtube.pausePlay();
 		}
 
 	}
 	youtube.play = function() {
-		if(youtube.songState.paused) {
+		if(youtube.songState.playing == 2) {
 			youtube.pausePlay();
 		}
 	}
