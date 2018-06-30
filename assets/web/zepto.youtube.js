@@ -219,6 +219,7 @@ var Youtube = (function() {
 		document.querySelector("ytmusic-player-bar").onPlayPauseButtonTap_();
 	}
 	youtube.stop = function() {
+		console.error("stop not implemented yet");
 	}
 	youtube.next = function() {
 		document.querySelector("ytmusic-player-bar").onNextButtonTap_();
@@ -228,8 +229,7 @@ var Youtube = (function() {
 	}
 	youtube.seek = function(offset) {
 		var el = document.querySelector("ytmusic-player-bar");
-		el.onVideoProgress_(el.currentSeconds_ + offset);
-		el.onUserSeek_();
+		el.gatedSeekBy_(offset);
 	}
 	youtube.setPosition = function(position) {
 		var el = document.querySelector("ytmusic-player-bar");
