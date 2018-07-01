@@ -2,6 +2,7 @@
 #include <QFile>
 #include <QDir>
 #include "thememanager.h"
+#include "cssparser.h"
 
 ThemeInfo::ThemeInfo(const QString& name, const QString& displayName, QObject *parent) : QObject(parent) {
     mName = name;
@@ -17,29 +18,28 @@ ThemeManager::ThemeManager(QObject* parent) : QObject(parent),
 }
 
 QVariantList ThemeManager::getThemes() {
-    QVariantList ret;
+    QMap<QString, QString> sortedList;
 
     for(QString dir: QDir(":/themes").entryList()) {
         QString name = dir.mid(0, dir.lastIndexOf('.'));
 
         QFile dataFile(":/themes/" + name + ".css");
         if(dataFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            QString themeData = dataFile.readAll();
+            CssParser parser(dataFile.readAll());
 
-            ThemeProperties* props = new ThemeProperties();
-            props->load(themeData);
-
-            QString displayName = props->get("Main", "name");
+            QString displayName = parser.find("qml Main").prop("name");
             if(displayName.length() > 0) {
-                QVariant variant;
-                variant.setValue(new ThemeInfo(name, displayName, this));
-                ret.append(variant);
+                sortedList[displayName] = name;
             }
-
-            delete props;
         }
     }
 
+    QVariantList ret;
+    for(QString displayName: sortedList.keys()) {
+        QVariant variant;
+        variant.setValue(new ThemeInfo(sortedList.value(displayName), displayName, this));
+        ret.append(variant);
+    }
     return ret;
 }
 

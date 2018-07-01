@@ -41,7 +41,7 @@ ApplicationWindow {
             title: qsTr("&File")
 
             ThemedMenu {
-                title: qsTr("&Theme")
+                title: qsTr("Theme")
 
                 Component.onCompleted: {
                     while(this.count > 0) {
@@ -101,6 +101,25 @@ ApplicationWindow {
             Action {
                 text: qsTr("Sign out")
                 onTriggered: webIntegration.gotoPage("signout")
+            }
+        }
+
+        ThemedMenu {
+            title: qsTr("&Tools")
+
+            ThemedMenu {
+                title: qsTr("Settings")
+
+                Action {
+                    text: qsTr("Tray icon")
+                    onTriggered: trayIcon.shouldShow = !trayIcon.shouldShow
+                }
+
+                Action {
+                    text: qsTr("Close to tray")
+                    enabled: trayIcon.shouldShow
+                    onTriggered: trayIcon.closeToTray = !trayIcon.closeToTray
+                }
             }
         }
     }
@@ -265,6 +284,7 @@ ApplicationWindow {
 
         onThemeChanged: {
             webIntegration.themeChanged(this.themeData())
+            mainWindow.requestUpdate()
         }
     }
 

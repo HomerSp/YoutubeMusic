@@ -3,17 +3,18 @@
 
 #include <QQuickItem>
 #include <QMap>
+#include "cssparser.h"
 
 class ThemeProperties : public QObject
 {
     Q_OBJECT
 public:
-    ThemeProperties(const ThemeProperties &other) : QObject(nullptr) { mProperties = other.mProperties; }
+    ThemeProperties(const ThemeProperties &other) : QObject(nullptr) { mParser.copyFrom(other.mParser); }
     ~ThemeProperties() { }
 
     explicit ThemeProperties(QObject *parent = nullptr);
 
-    Q_INVOKABLE QString get(const QString& element, const QString& prop, QString def = "", QString state = "") const;
+    Q_INVOKABLE QString get(const QString& element, const QString& prop, QString def = "", QString state = "");
 
     void load(QString& themeData);
 
@@ -22,7 +23,7 @@ signals:
 public slots:
 
 private:
-    QMap<QString, QMap<QString, QString> > mProperties;
+    CssParser mParser;
 };
 
 Q_DECLARE_METATYPE(ThemeProperties*)

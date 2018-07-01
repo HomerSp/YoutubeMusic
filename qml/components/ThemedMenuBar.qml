@@ -19,14 +19,14 @@ MenuBar {
             text: parent.text
             font: parent.font
             opacity: enabled ? 1.0 : 0.3
-            color: themeManager.properties.get("MenuBarItem", "color", control.palette.buttonText, ((control.menu !== null && control.menu.visible) ? "active" : control.hovered ? "hover" : ""))
+            color: themeManager.properties.get("MenuBarItem", "color", control.palette.buttonText, !control.enabled ? "disabled" : ((control.menu !== null && control.menu.visible) ? "active" : control.hovered ? "hover" : ""))
         }
 
         background: Rectangle {
             implicitWidth: 40
             implicitHeight: 40
             opacity: enabled ? 1 : 0.3
-            color: themeManager.properties.get("MenuBarItem", "background-color", "transparent", ((control.menu !== null && control.menu.visible) ? "active" : control.hovered ? "hover" : ""))
+            color: themeManager.properties.get("MenuBarItem", "background-color", "transparent", !control.enabled ? "disabled" : ((control.menu !== null && control.menu.visible) ? "active" : control.hovered ? "hover" : ""))
         }
     }
 

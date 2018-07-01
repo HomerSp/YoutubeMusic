@@ -16,7 +16,8 @@ SOURCES += main.cpp \
     mainwindow.cpp \
     thememanager.cpp \
     webengineviewfix.cpp \
-    themeproperties.cpp
+    themeproperties.cpp \
+    cssparser.cpp
 
 RESOURCES += qml.qrc
 
@@ -38,4 +39,5 @@ HEADERS += \
     mainwindow.h \
     thememanager.h \
     webengineviewfix.h \
-    themeproperties.h
+    themeproperties.h \
+    cssparser.h
