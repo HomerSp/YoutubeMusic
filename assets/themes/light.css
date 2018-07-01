@@ -1,7 +1,9 @@
+/* Theme data */
 qml Main {
       name: "Light";
 }
 
+/* Menu styling */
 qml MenuBar {
 	background-color: #ebebeb;
 	color: #000000;
@@ -11,7 +13,7 @@ qml MenuBarItem {
 	background-color: transparent;
 	color: #000000;
 }
-qml MenuBarItem:active {
+qml MenuBarItem:active, qml MenuItem {
 	background-color: #000000;
 	color: #ebebeb;
 }
@@ -19,23 +21,22 @@ qml MenuBarItem:hover {
 	background-color: #333;
 	color: #ebebeb;
 }
-qml MenuItem {
-	background-color: #000;
-	color: #ebebeb;
-}
-qml MenuItem:active {
+qml MenuItem:active, qml MenuItem:hover {
 	background-color: #ebebeb;
 	color: #000;
 }
 qml MenuItem:hover {
-	background-color: #ebebeb;
 	color: #333;
+}
+qml MenuItem:disabled {
+      color: #999;
 }
 qml MenuSeparator {
 	background-color: transparent;
 	color: #ebebeb;
 }
 
+/* Youtube Music styling */
 html:not([style-scope]):not(.style-scope) {
       --ytmusic-color-surface-1: #fff;
       --ytmusic-color-surface-2: #f4f4f4;
