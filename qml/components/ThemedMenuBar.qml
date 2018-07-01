@@ -7,6 +7,7 @@ MenuBar {
     delegate: MenuBarItem {
         id: control
         hoverEnabled: true
+        visible: (control.menu == null || (control.menu != null && control.menu.visibility))
 
         implicitWidth: Math.max(background ? background.implicitWidth : 0,
                                     contentItem.implicitWidth + leftPadding + rightPadding)

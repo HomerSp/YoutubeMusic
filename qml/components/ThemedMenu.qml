@@ -3,6 +3,8 @@ import QtQuick.Controls 2.4
 import QtQuick.Controls.impl 2.4
 
 Menu {
+    property bool visibility: true
+
     id: menu
     background: Rectangle {
        implicitWidth: 200

@@ -72,9 +72,8 @@ ApplicationWindow {
 
         ThemedMenu {
             id: userMenu
-            title: qsTr("")
-            visible: false
-            height: visible ? implicitHeight : 0
+            title: qsTr("User")
+            visibility: false
 
             Action {
                 text: qsTr("History")
@@ -269,8 +268,7 @@ ApplicationWindow {
 
         function userChanged(user) {
             userMenu.title = user.name
-            userMenu.visible = (user.name !== "")
-            userMenu.close()
+            userMenu.visibility = true
         }
 
         function loadTheme() {
