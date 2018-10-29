@@ -27,6 +27,10 @@ function setupDone() {
 		}
 	});
 
+    Zepto("ytmusic-browse-response").observe({attributes: true, attributeFilter: ["hidden"]}, function() {
+        Zepto("ytmusic-nav-bar").attr("scrolled", $(this).attr("hidden") !== undefined ? "true" : null);
+    });
+
 	webIntegration.gotoPage.connect(function(page) {
 		Youtube.gotoPage(page);
 	});

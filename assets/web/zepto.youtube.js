@@ -133,22 +133,24 @@ var Youtube = (function() {
 	}
 
 	youtube.userChanged = function(callback) {
-		var settingsEl = document.querySelector("ytmusic-settings-button");
-		settingsEl.zeptoUserChange = function(data) {
-			if(data === undefined || data === null) {
-				youtube.user.name = "";
-				callback.call(youtube);
-				return;
-			}
+        var activeAccount = null;
+        for(var i = 0; i < window.yt.config_["ACCOUNTS"].length; i++) {
+            if(window.yt.config_["ACCOUNTS"][i]["active"]) {
+                activeAccount = window.yt.config_["ACCOUNTS"][i];
+                break;
+            }
+        }
 
-			if(youtube.user.name !== data.name) {
-				youtube.user.name = data.name;
-				callback.call(youtube);
-			}
-		};
+        if(activeAccount === null) {
+            youtube.user.name = "";
+            callback.call(youtube);
+            return;
+        }
 
-		settingsEl._addComplexObserverEffect("zeptoUserChange(activeAccount)");
-		settingsEl.zeptoUserChange(settingsEl.activeAccount);
+        if(youtube.user.name !== activeAccount.name) {
+            youtube.user.name = activeAccount.name;
+            callback.call(youtube);
+        }
 	}
 
 	youtube.gotoPage = function(page) {
@@ -205,13 +207,13 @@ var Youtube = (function() {
 	}
 
 	youtube.pause = function() {
-		if(youtube.songState.playing == 1) {
+        if(youtube.songState.playing === 1) {
 			youtube.pausePlay();
 		}
 
 	}
 	youtube.play = function() {
-		if(youtube.songState.playing == 2) {
+        if(youtube.songState.playing === 2) {
 			youtube.pausePlay();
 		}
 	}
@@ -238,9 +240,9 @@ var Youtube = (function() {
 	}
 	youtube.loopStatus = function(loop) {
 		var repeatMode = "NONE";
-		if(loop == 1) {
+        if(loop === 1) {
 			repeatMode = "ALL";
-		} else if(loop == 2) {
+        } else if(loop === 2) {
 			repeatMode = "ONE";
 		}
 
@@ -252,7 +254,6 @@ var Youtube = (function() {
 	youtube.shuffle = function() {
 		document.querySelector("ytmusic-player-bar").onShuffleButtonTap_();
 	}
-
 	return youtube;
 })()
 

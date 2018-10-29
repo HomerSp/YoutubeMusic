@@ -66,6 +66,16 @@ html:not([style-scope]):not(.style-scope) {
       --yt-endpoint-hover-color: var(--ytmusic-color-text-1);
 }
 
+ytmusic-app-layout #nav-bar-background.ytmusic-app-layout {
+      --ytmusic-active-tab-color: var(--ytmusic-color-text-1);
+      --ytmusic-inactive-tab-color: var(--ytmusic-color-text-2);
+}
+
+ytmusic-app-layout[player-ui-state_="PLAYER_PAGE_OPEN"] #nav-bar-background.ytmusic-app-layout, ytmusic-app-layout[content-scrolled_] #nav-bar-background.ytmusic-app-layout {
+      --ytmusic-active-tab-color: var(--ytmusic-color-text-1);
+      --ytmusic-inactive-tab-color: var(--ytmusic-color-text-2);
+}
+
 a.ytmusic-pivot-bar-item-renderer {
       --yt-endpoint-hover-color: var(--ytmusic-active-tab-color);
 }

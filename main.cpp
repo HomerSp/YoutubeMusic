@@ -9,6 +9,8 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QCoreApplication::setApplicationName("YoutubeMusic");
+    QCoreApplication::setOrganizationName("aqba");
     QApplication app(argc, argv);
 
     // Make sure the tray icon shows properly

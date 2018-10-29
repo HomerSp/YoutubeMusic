@@ -3,6 +3,6 @@
         <file>components/ThemedMenu.qml</file>
         <file>components/ThemedMenuBar.qml</file>
         <file>components/ThemedMenuSeparator.qml</file>
-        <file>components/ThemedAction.qml</file>
+        <file>components/ActionTheme.qml</file>
     </qresource>
 </RCC>

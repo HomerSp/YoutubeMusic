@@ -60,19 +60,24 @@ html:not([style-scope]):not(.style-scope) {
       --ytmusic-color-input-border-focused: #0b83e5;
 
       --ytmusic-background: var(--ytmusic-color-surface-1);
+      --ytmusic-active-tab-color: #0d47a1;
+      --ytmusic-inactive-tab-color: #1976d2;
+}
+
+ytmusic-app-layout[content-scrolled_], ytmusic-nav-bar[scrolled] {
       --ytmusic-active-tab-color: #e3f2fd;
-      --ytmusic-inactive-tab-color: #bbdefb;
+      --ytmusic-inactive-tab-color: #90caf9;
 }
 
 a.ytmusic-pivot-bar-item-renderer {
       --yt-endpoint-hover-color: var(--ytmusic-active-tab-color);
 }
 .image.ytmusic-immersive-header-renderer ~ .content-container-wrapper.ytmusic-immersive-header-renderer {
-      background-color: rgba(13, 71, 161, .75);
+      background-color: #bbdefbbf;
 }
 
 .title.ytmusic-immersive-header-renderer, .description.ytmusic-immersive-header-renderer, ytmusic-toggle-button-renderer #button.ytmusic-toggle-button-renderer {
-      color: #fff;
+      color: var(--ytmusic-color-text-1);
 }
 
 yt-icon {

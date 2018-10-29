@@ -13,6 +13,8 @@ Menu {
        border.color: themeManager.properties.get("MenuItem", "background-color", menu.palette.dark)
     }
     delegate: MenuItem {
+        property bool visibility: true
+
         id: control
         hoverEnabled: true
 

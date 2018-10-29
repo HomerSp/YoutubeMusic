@@ -31,9 +31,9 @@ ApplicationWindow {
 
     onClosing: {
         // The tray icon causes the program to continue running, so hide it if we don't want that to happen.
-        if(!trayIcon.shouldShow || !trayIcon.closeToTray) {
+        /*if(!trayIcon.shouldShow || !trayIcon.closeToTray) {
             trayIcon.hide()
-        }
+        }*/
     }
 
     menuBar: ThemedMenuBar {
@@ -52,7 +52,7 @@ ApplicationWindow {
                     for(var key in themes) {
                         var theme = themes[key]
 
-                        var actionComponent = Qt.createComponent("components/ThemedAction.qml")
+                        var actionComponent = Qt.createComponent("components/ActionTheme.qml")
                         var action = actionComponent.createObject(this, {name: theme.name, displayName: theme.displayName})
 
                         this.addAction(action)
@@ -109,8 +109,8 @@ ApplicationWindow {
             ThemedMenu {
                 title: qsTr("Settings")
 
-                Action {
-                    text: qsTr("Tray icon")
+                /*Action {
+                    text: qsTr("Show tray icon")
                     onTriggered: trayIcon.shouldShow = !trayIcon.shouldShow
                 }
 
@@ -118,7 +118,7 @@ ApplicationWindow {
                     text: qsTr("Close to tray")
                     enabled: trayIcon.shouldShow
                     onTriggered: trayIcon.closeToTray = !trayIcon.closeToTray
-                }
+                }*/
             }
         }
     }
@@ -128,6 +128,7 @@ ApplicationWindow {
         objectName: "webView"
         anchors.fill: parent
         url: "https://music.youtube.com/"
+
         webChannel: WebChannel {
             registeredObjects: [
                 webIntegration
@@ -286,7 +287,7 @@ ApplicationWindow {
         }
     }
 
-    SystemTrayIcon {
+    /*SystemTrayIcon {
         property bool closeToTray: true
         property bool shouldShow: true
 
@@ -321,7 +322,7 @@ ApplicationWindow {
                 this.hide()
             }
         }
-    }
+    }*/
 
     Settings {
         id: windowState
@@ -335,8 +336,8 @@ ApplicationWindow {
     Settings {
         id: mainSettings
         property alias theme: themeManager.theme
-        property alias trayIconShow: trayIcon.shouldShow
-        property alias trayIconClose: trayIcon.closeToTray
+        /*property alias trayIconShow: trayIcon.shouldShow
+        property alias trayIconClose: trayIcon.closeToTray*/
     }
 
     Settings {
